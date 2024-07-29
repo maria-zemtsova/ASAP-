@@ -1,0 +1,37 @@
+.intro{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 62px;
+}
+
+.intro-wrapper{
+    width: 459px;
+}
+
+.intro__title{
+    margin-top: 216px;
+    margin-bottom: 106px;
+    font-size: 58px;
+    line-height: 68px;
+}
+
+.intro__job{
+    margin: 0 0 180px 0;
+    font-size: 16px;
+    line-height: 22px;
+    color: $grey-light;
+}
+
+.intro__image{
+    padding-top: 26px;
+    width: 481px;
+    height: 635px;
+}
+
+@media (max-width: $mobile) {
+    .intro__title{
+        color: aqua;
+    }
+
+}
+  

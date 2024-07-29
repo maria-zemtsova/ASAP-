@@ -1,0 +1,49 @@
+.header{
+    min-height: 75px;
+    display: flex;
+    justify-content: center;
+    gap: 685px;
+
+}
+
+.header__logo{
+    width: 36px;
+    height: 36px;
+    padding-top: 20px;
+}
+
+.header__list{
+    display: flex;
+    width: 219px;
+    justify-content: space-between;
+    margin-top: 29px;
+    padding: 0;
+}
+
+.header__link{
+    display: inline-block;
+    font-size: 12px;
+    line-height: 20px;
+    color: $button;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.header__button{
+    display: none;
+}
+
+@media (max-width: 320px){
+    .header__list{
+        display: none;
+    }
+
+    .header__button{
+        display: block;
+    }
+
+
+
+
+}
+
