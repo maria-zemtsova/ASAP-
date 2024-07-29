@@ -52,3 +52,25 @@
 .skills__description{
     width: 752px;
 }
+
+@media (max-width: $mobile) {
+
+    .skills{
+        width: 288px;
+    }
+
+    .skills-wrapper{
+        width: 250px;
+        height: 150px;
+        overflow: hidden;
+    }
+
+    .skills__description{
+        width: 250px;
+        height: 150px;
+    }
+
+
+    
+
+}

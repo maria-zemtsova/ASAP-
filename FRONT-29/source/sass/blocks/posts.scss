@@ -54,3 +54,42 @@
     color: $grey-light;
 }
 
+
+@media (max-width: $mobile){
+
+    .posts,
+    .posts-wrapper{
+        width: 288px;
+    }
+    
+    .posts__item{
+        display: block;
+        width: 288px;
+    }
+
+    .posts__image{
+        width: 288px;
+        height: 218px;
+    }
+
+    .posts__title{
+        margin: 0;
+    }
+
+    .posts > .more-button{
+        left: 120px;
+        top: 1975px;
+    }
+
+    .posts__date{
+        padding-left: 0;
+    }
+
+    .posts__date-wrapper > .more-button{
+        padding-top: 20px;
+    }
+
+
+
+
+}

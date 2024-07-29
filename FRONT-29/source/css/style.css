@@ -34,7 +34,7 @@ ul {
   overflow: hidden;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 320px) {
   .page {
     width: 320px;
   }
@@ -69,17 +69,27 @@ ul {
   text-transform: uppercase;
 }
 
+.header__link:hover {
+  border-bottom: 1px solid;
+  color: #6E38F7;
+}
+
 .header__button {
   display: none;
 }
 
 @media (max-width: 320px) {
+  .header {
+    gap: 213px;
+  }
+
   .header__list {
     display: none;
   }
 
   .header__button {
     display: block;
+    padding-top: 25px;
   }
 }
 .intro {
@@ -113,8 +123,30 @@ ul {
 }
 
 @media (max-width: 320px) {
+  .intro {
+    flex-direction: column;
+    padding-top: 57px;
+  }
+
+  .intro-wrapper {
+    width: 320px;
+    padding-left: 16px;
+  }
+
   .intro__title {
-    color: aqua;
+    margin-bottom: 15px;
+    margin-top: 0;
+  }
+
+  .intro__job {
+    margin-bottom: 30px;
+  }
+
+  .intro__image {
+    width: 288px;
+    height: 413px;
+    display: block;
+    margin: 0 auto;
   }
 }
 .skills {
@@ -167,6 +199,22 @@ ul {
   width: 752px;
 }
 
+@media (max-width: 320px) {
+  .skills {
+    width: 288px;
+  }
+
+  .skills-wrapper {
+    width: 250px;
+    height: 150px;
+    overflow: hidden;
+  }
+
+  .skills__description {
+    width: 250px;
+    height: 150px;
+  }
+}
 .posts {
   padding-top: 80px;
   width: 940px;
@@ -220,6 +268,39 @@ ul {
   color: #95A1BB;
 }
 
+@media (max-width: 320px) {
+  .posts,
+.posts-wrapper {
+    width: 288px;
+  }
+
+  .posts__item {
+    display: block;
+    width: 288px;
+  }
+
+  .posts__image {
+    width: 288px;
+    height: 218px;
+  }
+
+  .posts__title {
+    margin: 0;
+  }
+
+  .posts > .more-button {
+    left: 120px;
+    top: 1975px;
+  }
+
+  .posts__date {
+    padding-left: 0;
+  }
+
+  .posts__date-wrapper > .more-button {
+    padding-top: 20px;
+  }
+}
 .page-footer {
   padding-top: 20px;
   padding-bottom: 20px;

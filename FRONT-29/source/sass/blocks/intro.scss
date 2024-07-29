@@ -29,9 +29,33 @@
 }
 
 @media (max-width: $mobile) {
-    .intro__title{
-        color: aqua;
+
+    .intro{
+        flex-direction: column;
+        padding-top: 57px;
     }
 
+    .intro-wrapper{
+        width: 320px;
+        padding-left: 16px;
+
+    }
+
+
+    .intro__title{
+        margin-bottom: 15px;
+        margin-top: 0;
+    }
+
+    .intro__job{
+        margin-bottom: 30px;
+    }
+
+    .intro__image{
+        width: 288px;
+        height: 413px;
+        display: block;
+        margin: 0 auto;
+    }
 }
   
