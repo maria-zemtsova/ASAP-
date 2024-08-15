@@ -35,7 +35,8 @@
     width: 20px;
     height: 20px;
     padding: 0;
-    // background-image: url('../skills-button.svg');
+    background-image: url('/src/assets/sass/skills-button.svg');
+
 }
 
 // ACTIVE
@@ -45,9 +46,9 @@
     border-color: $button;
 }
 
-// .skills__item--active > .skills__button{
-//     // background-image: url('../../skills-button--active.svg')
-// }
+.skills__item--active > .skills__button{
+    background-image: url('/src/assets/sass/skills-button--active.svg')
+}
 
 .skills__description{
     display: none;

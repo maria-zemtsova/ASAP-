@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'front-29-vue',
+  name: 'front-29-vue-footer',
   props: {
     msg: String
   }

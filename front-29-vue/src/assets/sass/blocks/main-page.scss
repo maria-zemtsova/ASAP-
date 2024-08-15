@@ -1,10 +1,10 @@
-.page{
-    font-family: "Rubik",  sans-serif;
-    color: $black;
-    width: $desktop;
-    margin: 0 auto;
 
-}
+#app{
+    font-family: "Rubik",  sans-serif;
+      color: $black;
+      width: $desktop;
+      margin: 0 auto;
+  }
 
 ul{
     list-style: none;
@@ -42,7 +42,7 @@ button{
 }
 
 @media (max-width:  $mobile) {
-    .page{
+    #app{
         width: 320px;
     }
 }

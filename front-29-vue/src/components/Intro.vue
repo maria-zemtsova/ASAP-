@@ -11,7 +11,7 @@
 
   <script>
   export default {
-    name: 'front-29-vue',
+    name: 'front-29-vue-intro',
     props: {
       msg: String
     }
