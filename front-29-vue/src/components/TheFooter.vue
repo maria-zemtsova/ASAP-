@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <p class="footer__copyright">Copyright © 2023. All rights reserved.</p>
+        <p class="footer__copyright">Copyright © {{ new Date().getFullYear() }}. All rights reserved.</p>
     </footer>
 </template>
 
