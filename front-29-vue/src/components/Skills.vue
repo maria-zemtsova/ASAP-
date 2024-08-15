@@ -1,33 +1,10 @@
 <template>
-     <section class="skills">
-            <h2 class="skills__title">Skills</h2>
-
-            
-            <ul class="skills__list">
-                <li  v-for="item in skills" v-bind:key="item" class="skills__item"  :class="{'skills__item--active' : isActive}">
-                    <div>
-                        <h3 class="skills__item-title">{{ item.title }}</h3>
-                        <button class="more-button skills__button" @click="toggleActive"></button>
-                        <div class="skills__description" :class="{'skills__description--active' : isActive}">
-                            <p class="skills__description-text" v-html="item.description">
-                            </p>
-                        </div>
-                    </div>
-                </li>
-                    
-            </ul>
-
-
-            <ul class="skills__list">
-                <li  v-for="item in skills" v-bind:key="item" class="skills__item"  :class="{'skills__item--active' : isActive}">
-                    <Skill>
-
-                    </Skill>
-                </li>
-                    
-            </ul>
-        </section>
-        
+    <section class="skills">
+        <h2 class="skills__title">Skills</h2>
+        <ul class="skills__list">
+                <Skill v-for="item in skills" v-bind:key="item.title" :item="item" />
+        </ul>
+    </section>
 </template>
  
    <script>
