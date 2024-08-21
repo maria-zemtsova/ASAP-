@@ -1,20 +1,38 @@
 <template>
   <div id="app">
-    <BookList/>
-    <FilmList/>
+    <ul>
+      <AccordionList v-for="item in lists" v-bind:key="item.title" :item="item"/>
+    </ul>
   </div>
 </template>
 
 <script>
-import BookList from './components/BookList.vue'
-import FilmList from './components/FilmList.vue'
+
+import AccordionList from './components/AccordionList.vue';
 
 export default {
+
+  props:{
+    item: Object
+  },
   name: 'App',
+  data(){
+        return{
+            lists:[
+            {
+                title:'Book List',
+                list: ['Intouchables', 'The Shawshank Redemption', 'Forrest Gump'],
+            },
+            {
+                title:'Film List',
+                list: ['To kill a mockingbird', 'War and Peace', 'Gone with the Wind'],
+
+            },
+        ],      
+        }   
+    },
   components: {
-    BookList,
-    FilmList
-    
+    AccordionList,
   }
 }
 </script>
