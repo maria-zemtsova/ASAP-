@@ -3,7 +3,7 @@
          <h2>{{ item.title }}</h2>
             <button @click="toggleActive">Show {{ item.title }}</button>
             <ul v-show="isActive">
-                <AccordionItem v-for="item in lists.list" v-bind:key="item.list" :item="item" />           
+                <AccordionItem v-for="item in item.list" v-bind:key="item.list" :item="item" />           
             </ul>   
     </li>    
 </template>
@@ -20,7 +20,7 @@ export default {
     },
     data(){
         return{
-            isActive:false, 
+            isActive:true, 
         }        
     },
     methods:{

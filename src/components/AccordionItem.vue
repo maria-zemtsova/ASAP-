@@ -12,19 +12,8 @@
   export default {
     name: 'AccordionComponent',
     props: {
-      item: Array
+      item: String
     }
-
-//     data (){
-//        return{
-//             isActive:false
-//        }
-//    },
-//    methods:{
-//        toggleActive(){
-//            this.isActive = !this.isActive
-//        }
-//    }
   }
 
  

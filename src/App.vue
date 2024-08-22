@@ -11,17 +11,13 @@
 import AccordionList from './components/AccordionList.vue';
 
 export default {
-
-  props:{
-    item: Object
-  },
   name: 'App',
   data(){
         return{
             lists:[
             {
                 title:'Book List',
-                list: ['Intouchables', 'The Shawshank Redemption', 'Forrest Gump'],
+                list: ['Intouchables', 'The Shawshank Redemption', 'Forrest Gump', 'Forrest Gump'],
             },
             {
                 title:'Film List',
