@@ -1,8 +1,6 @@
 <template>
     <li>
-        <div>
-            <h3>{{ item.list }}</h3>
-        </div>
+        <h3>{{ item }}</h3>
     </li>
 </template>
 
@@ -14,9 +12,7 @@
     props: {
       item: String
     }
-  }
-
- 
+  } 
 </script>
 
   
