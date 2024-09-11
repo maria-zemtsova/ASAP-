@@ -1,36 +1,21 @@
 <template>
   <div id="app">
-    <h2 class="title">Названия постов</h2>
-    <ul class="post__list">
-      <li class="post__item" v-for="post in posts" :key="post.id">
-        {{ post.title }}
-      </li>
-    </ul>
+    <post-list />
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import PostList from './components/PostList.vue';
 
-const axiosOption = {
-  timeout: 10000,
-  baseURL: 'http://vseverske.ru'
-};
-const axiosApiInstance = axios.create(axiosOption);
 
 export default {
+  components: { PostList },
   name: 'App',
-  data(){
-    return{
-      posts:[],
-    }
-  },
-  async created(){
-    let response = await axiosApiInstance.get('/blog/api/posts')
-        this.posts = response.data.data,
-        console.log('posts:', this.posts)
-    },
+  comments: {
+    PostList
   }
+
+}
 
 </script>
 
