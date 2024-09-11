@@ -24,7 +24,7 @@ export default {
   },
   async created(){
     try{
-      let response = await axiosApiInstance.get('/blog/api/posts')
+      let response = await axiosApiInstance.get('/posts')
         this.posts = response.data.data,
         console.log('posts:', this.posts)
     } catch (error) {
