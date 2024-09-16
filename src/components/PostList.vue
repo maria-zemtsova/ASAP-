@@ -1,39 +1,48 @@
 <template>
-    <div>
-      <h2 class="title">Названия постов</h2>
-      <ul class="post__list">
-        <li class="post__item" v-for="post in posts" :key="post.id">
+  <div class="postList">
+    <h1 class="title">Названия постов</h1>
+    <ul class="post__list" v-if="posts.length">
+      <li class="post__item" v-for="post in posts" :key="post.id">
+        <router-link class="item__link" :to="{ name: 'PostItem', params: { id: post.id } }">
           {{ post.title }}
-        </li>
-      </ul>
-    </div>
+        </router-link>
+      </li>
+    </ul>
+    <p v-else>Загрузка...</p>
+  </div>
 </template>
-  
+
 <script>
-import axios from 'axios';
-import axiosOption from '../axios';
-
-const axiosApiInstance = axios.create(axiosOption);
-
+import axios from "axios";
 export default {
-  name: 'App',
-  data(){
-    return{
-      posts:[],
-    }
+  name: "PostList",
+  data() {
+    return {
+      posts: [],
+    };
   },
-  async created(){
-    try{
-      let response = await axiosApiInstance.get('/posts')
-        this.posts = response.data.data,
-        console.log('posts:', this.posts)
-    } catch (error) {
-        console.error('Ошибка при загрузке постов:', error);
-    }
-    }
-  }
+  created() {
+    this.fetchPosts();
+  },
+  methods: {
+    async fetchPosts() {
+      try {
+        const response = await axios.get("http://vseverske.ru/blog/api/posts");
+        let posts = response.data;
+        console.log("response", response.data.data);
+        this.posts = posts.data;
 
+        console.log("response data", response.data);
+        console.log("this posts", this.posts);
+      } catch (error) {
+        console.error("Ошибка при загрузке постов:", error);
+      }
+    },
+  },
+};
 </script>
+
+
   <style lang="scss" scoped>
   $primary-color: #c21d80;
   $secondary-color: #bb87a9;
@@ -56,7 +65,7 @@ export default {
     border-radius: $border-radius;
     background-color: #fff;
   
-  .post__item {
+  .post__item{
       padding: 15px 20px;
       border-bottom: 1px solid #eaeaea;
       transition: background-color 0.3s;
@@ -70,6 +79,18 @@ export default {
         background-color: $secondary-color;
         color: #fff;
       }
+    }
+
+    .item__link{
+      color: $text-color;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $secondary-color;
+        color: #fff;
+      }
+
+
     }
   }
   </style>
