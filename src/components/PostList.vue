@@ -6,37 +6,58 @@
         <router-link class="item__link" :to="{ name: 'PostItem', params: { id: post.id } }">
           {{ post.title }}
         </router-link>
+        <div class="post__buttons">
+          <router-link
+            v-if="isAuthenticated"
+            :to="{ name: 'Edit', params: { id: post.id } }"
+          >
+            <button>Редактировать</button></router-link
+          >
+          <button v-if="isAuthenticated" @click="showDeleteForm = post.id">
+            Удалить пост
+          </button>
+        </div>
       </li>
     </ul>
     <p v-else>Загрузка...</p>
+     <DeleteForm
+        v-if="showDeleteForm"
+        :post="getPostById(showDeleteForm)"
+        @close="showDeleteForm = null"
+        @deleted="fetchPosts"
+    />
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import { mapGetters } from "vuex";
+import DeleteForm from "./Delete.vue";
 export default {
   name: "PostList",
+  components: { DeleteForm },
   data() {
     return {
       posts: [],
+      showDeleteForm: null,
     };
   },
   created() {
     this.fetchPosts();
   },
+  computed: { ...mapGetters(["isAuthenticated"]) },
   methods: {
     async fetchPosts() {
       try {
         const response = await axios.get("http://vseverske.ru/blog/api/posts");
         let posts = response.data;
-        console.log("response", response.data.data);
         this.posts = posts.data;
-
-        console.log("response data", response.data);
-        console.log("this posts", this.posts);
       } catch (error) {
-        console.error("Ошибка при загрузке постов:", error);
+        console.error("Ошибка", error);
       }
+    },
+    getPostById(id) {
+      return this.posts.find((post) => post.id === id); 
     },
   },
 };
@@ -92,6 +113,22 @@ export default {
 
 
     }
+
+    button {
+      background-color: $secondary-color;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-left: 20px;
+
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+  
   }
   </style>
   
