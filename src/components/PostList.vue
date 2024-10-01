@@ -1,6 +1,9 @@
 <template>
   <div class="postList">
     <h1 class="title">Названия постов</h1>
+    <router-link  :to="{name: 'Create'}">
+        <button>Создать пост</button>
+    </router-link>
     <ul class="post__list" v-if="posts.length">
       <li class="post__item" v-for="post in posts" :key="post.id">
         <router-link class="item__link" :to="{ name: 'PostItem', params: { id: post.id } }">
@@ -96,10 +99,10 @@ export default {
         border-bottom: none;
       }
   
-      &:hover {
-        background-color: $secondary-color;
-        color: #fff;
-      }
+      // &:hover {
+      //   background-color: $secondary-color;
+      //   color: #fff;
+      // }
     }
 
     .item__link{

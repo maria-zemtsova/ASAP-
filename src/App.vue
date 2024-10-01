@@ -3,20 +3,18 @@
     <header>
       <nav>
         <div v-if="!isAuthenticated">
-          <router-link v-if="!isAuthenticated" to="/login">Вход</router-link>
-          <router-link v-if="!isAuthenticated" to="/register">Регистрация</router-link>
+          <router-link  to="/login">Вход</router-link>
+          <router-link  to="/register">Регистрация</router-link>
         </div>
+
         <router-link to="/posts"> </router-link>
-        <div v-if="isAuthenticated">
+
+        <div v-else>
             <button @click="logout">Выход</button>
-            <router-link v-if="isAuthenticated" :to="{name: 'Create'}">
-               <button>Создать пост</button>
-            </router-link>
         </div>
-        
         
       </nav>
-      
+
     </header>
     <main><router-view></router-view></main>
   </div>
