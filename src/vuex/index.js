@@ -44,8 +44,6 @@ export default new Vuex.Store({
 
 
         localStorage.setItem("token", token);
-
-
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       } catch (error) {
         if (error.response) {
@@ -129,7 +127,6 @@ export default new Vuex.Store({
 
     async editPost(_, postData) {
       try {
-
         await axios.put("http://vseverske.ru/blog/api/post", postData);
         console.log(`Пост с id ${postData.id} был успешно обновлен.`);
       } catch (error) {
@@ -169,6 +166,10 @@ export default new Vuex.Store({
     },
     getUser(state) {
       return state.user; 
+    }, 
+    // Геттер для получения поста по ID
+    getPostById: (state) => (id) => {
+      return state.posts.find(post => post.id === id);   
     },
-  },
+  }
 });

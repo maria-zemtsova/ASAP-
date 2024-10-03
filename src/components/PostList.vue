@@ -1,21 +1,19 @@
 <template>
   <div class="postList">
     <h1 class="title">Названия постов</h1>
-    <router-link  :to="{name: 'Create'}">
+    <router-link  :to="{name: 'CreatePost'}">
         <button>Создать пост</button>
     </router-link>
+
     <ul class="post__list" v-if="posts.length">
       <li class="post__item" v-for="post in posts" :key="post.id">
         <router-link class="item__link" :to="{ name: 'PostItem', params: { id: post.id } }">
           {{ post.title }}
         </router-link>
         <div class="post__buttons">
-          <router-link
-            v-if="isAuthenticated"
-            :to="{ name: 'Edit', params: { id: post.id } }"
-          >
-            <button>Редактировать</button></router-link
-          >
+          <router-link  :to="{name: 'EditPost'}">
+             <button>Редактировать пост</button>
+          </router-link>
           <button v-if="isAuthenticated" @click="showDeleteForm = post.id">
             Удалить пост
           </button>

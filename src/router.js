@@ -4,9 +4,9 @@ import PostItem from "@/components/Post.vue";
 import PostList from "@/components/PostList.vue";
 import Login from "@/components/Login.vue";
 import Register from "@/components/Register.vue";
-import Create from "@/components/PostCreate.vue";
+import PostForm  from "@/components/PostForm.vue";
 import Delete from "@/components/Delete.vue";
-import Edit from "@/components/EditPost.vue";
+// import Edit from "@/components/EditPost.vue";
 
 Vue.use(Router);
 
@@ -26,10 +26,11 @@ export default new Router({
       component: Login,
      },
 
-    {
+     {
       path: "/post/create",
-      name: "Create",
-      component: Create,
+      name: "CreatePost",
+      component: PostForm,
+      props: { isEditMode: false }, // Указываем, что это создание поста
     },
     {
       path: "/post/delete",
@@ -37,9 +38,10 @@ export default new Router({
       component: Delete,
     },
     {
-      path: "/post/edit",
-      name: "Edit",
-      component: Edit,
+      path: "/post/edit/:id", // Динамический маршрут для редактирования
+      name: "EditPost",
+      component: PostForm,
+      props: { isEditMode: true }, // Указываем, что это редактирование поста
     },
 
 

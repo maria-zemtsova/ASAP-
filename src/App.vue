@@ -9,9 +9,9 @@
 
         <router-link to="/posts"> </router-link>
 
-        <div v-else>
+        <!-- <div v-else>
             <button @click="logout">Выход</button>
-        </div>
+        </div> -->
         
       </nav>
 
