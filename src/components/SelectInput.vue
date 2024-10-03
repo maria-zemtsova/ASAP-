@@ -1,30 +1,29 @@
 <template>
-    <div>
+  <div>
     <label :for="id">{{ label }}</label>
     <select
       :id="id"
-      :value="value" 
-      @input="$emit('input', $event.target.value)"
+      :value="value"
+      @change="$emit('input', $event.target.value)"
     >
       <option
         v-for="option in options"
         :key="option.value"
         :value="option.value"
       >
-        {{ options.text }}
+        {{ option.text }}
       </option>
     </select>
   </div>
-  </template>
-  
-  <script>
-  export default {
-    props: {
-      id: String,
-      label: String,
-      options: Array,
-      value: String
-    }
-  }
-  </script>
-  
+</template>
+
+<script>
+export default {
+  props: {
+    id: String,
+    label: String,
+    value: String,
+    options: Array,
+  },
+};
+</script>

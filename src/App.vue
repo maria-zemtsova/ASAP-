@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    {{formData}}
     <CharacterForm 
       @syncData="syncFormData" 
       :initFormData="formData"

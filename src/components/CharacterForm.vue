@@ -49,7 +49,7 @@
       {{ formData.isMaster }}
 
 
-      <SelectInput 
+      <!-- <SelectInput 
           label="Раса" 
           id='race' 
           v-model="formData.race" 
@@ -62,48 +62,47 @@
           id='class' 
           v-model="formData.classC" 
           :options="optionsClass" />
-      {{ formData.classC}}
+      {{ formData.classC}} -->
 
 
       <div>
-        <label>Таланты</label>
-        <CheckBoxInput
-            v-for="talent in optionsTalents" 
-            :key="talent.value"
-            :id="talent.value"
-            :label="talent.text"
-            v-model="formData.talents"
-            :talent="talent.value"
+      <label>Таланты:</label>
+      <CheckBoxInput
+        v-for="talent in optionsTalents" 
+        :key="talent.value"
+        :id="talent.value"
+        :label="talent.text"
+        v-model="formData.selectedTalents"
+        :talent="talent.value"
       />
-      {{ formData.talents }}
-
     </div>
+
 
       <button  @click="syncData">Синхронизировать</button>
     </div>
   </template>
   
   <script>
-  import InputText from './InputText.vue';
-  import NumberInput from './NumberInput.vue';
-  import DateInput from './DateInput.vue';
-  import RadioInput from './RadioInput.vue';
+  // import InputText from './InputText.vue';
+  // import NumberInput from './NumberInput.vue';
+  // import DateInput from './DateInput.vue';
+  // import RadioInput from './RadioInput.vue';
   import CheckboxInput from './CheckboxInput.vue';
-  import SelectInput from './SelectInput.vue';
-  import TextareaInput from './TextareaInput.vue';
-  import ColorInput from './ColorInput.vue';
+  // import SelectInput from './SelectInput.vue';
+  // import TextareaInput from './TextareaInput.vue';
+  // import ColorInput from './ColorInput.vue';
 
   
   export default {
     components: {
-      InputText,
-      NumberInput,
-      DateInput,
-      RadioInput,
+      // InputText,
+      // NumberInput,
+      // DateInput,
+      // RadioInput,
       CheckboxInput,
-      SelectInput,
-      TextareaInput,
-      ColorInput,
+      // SelectInput,
+      // TextareaInput,
+      // ColorInput,
     },
     props: ['initFormData'],
     data() {
@@ -116,7 +115,7 @@
           isMaster: [],
           race: '',
           classC: '',
-          talents: [],
+          selectedTalents: [], 
           hairColor: '#000000',
           biography: '',
                   },
@@ -167,11 +166,13 @@
     methods:{
       syncData(){
         this.$emit('syncData', this.formData)
-      }
-    }
+      },
+      
+  }
+}
 
   
-  }
+
 
 
   </script>
