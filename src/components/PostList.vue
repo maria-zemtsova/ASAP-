@@ -11,7 +11,7 @@
           {{ post.title }}
         </router-link>
         <div class="post__buttons">
-          <router-link  :to="{name: 'EditPost'}">
+          <router-link  :to="{ name: 'EditPost', params: { id: post.id } }">
              <button>Редактировать пост</button>
           </router-link>
           <button v-if="isAuthenticated" @click="showDeleteForm = post.id">

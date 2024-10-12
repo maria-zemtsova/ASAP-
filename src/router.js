@@ -27,7 +27,7 @@ export default new Router({
      },
 
      {
-      path: "/post/create",
+      path: "/posts/create",
       name: "CreatePost",
       component: PostForm,
       props: { isEditMode: false }, // Указываем, что это создание поста
@@ -41,7 +41,8 @@ export default new Router({
       path: "/post/edit/:id", // Динамический маршрут для редактирования
       name: "EditPost",
       component: PostForm,
-      props: { isEditMode: true }, // Указываем, что это редактирование поста
+      props: true,
+      // props: { isEditMode: true }, // Указываем, что это редактирование поста
     },
 
 

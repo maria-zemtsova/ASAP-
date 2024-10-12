@@ -24,27 +24,26 @@
   import { mapActions,  } from "vuex"; //mapGetters
   
   export default {
-    props:{
-      isEditMode: {  // передаем значение этой переменной через роутер
-          type: Boolean,
-          default: false,
-        },
-    },
+
+    props: ["id"],
     data() {
       return {
         post: {
           title: "",
           description: "",
         },
+        // isEditMode: true,
         error: null,
       };
     },
-    // computed: {
-    //   ...mapGetters(['getPostById']),
-    //   isValid() {
-    //     return this.post.title && this.post.description;
-    //   },
+    computed: {
+    //   isEditMode() {
+    //   return this.$route.name === 'EditPost' ?  'true'  : 'false'; // Проверяем имя маршрута, если для редактирования, то значение true
     // },
+      isValid() {
+        return this.post.title && this.post.description;
+      },
+    },
     methods: {
     ...mapActions(["createPost", "editPost"]),
     
